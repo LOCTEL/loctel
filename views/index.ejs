@@ -8,4 +8,27 @@
     <h1><%= title %></h1>
     <p>Welcome to <%= title %> MARIO</p>
   </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    
+                    $.ajax({
+
+                    type: 'GET',
+                    url: 'https://172.30.0.1:82/cdrapi?format=JSON',
+                    contentType: 'text/plain',
+                    crossDomain: true,
+                    xhrFields: {
+                        withCredentials: true
+                    },
+                    headers: function (req) {
+                    },
+                    success: function () {
+                        alert('sucess');
+                    },
+                    error: function (xhr, ajaxOptions, thrownError) {
+                        alert(xhr + ajaxOptions + thrownError);
+                    }
+                });
+  
+  </script>
 </html>
