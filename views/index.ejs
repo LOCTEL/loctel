@@ -1,11 +1,385 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-  </head>
-  <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %> MARIO</p>
-  </body>
-</html>
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Loctel | Cineto Telecomunicaciones</title>
+
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet">
+    <link href="css/plugins/sweetalert/sweetalert.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+
+    <link href="css/animate.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+
+</head>
+
+<body class="">
+
+    <div id="wrapper">
+
+        <nav class="navbar-default navbar-static-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav metismenu" id="side-menu">
+                    <li class="nav-header">
+                        <div class="dropdown profile-element">
+                            <span>
+                                <img alt="image" class="img-rounded" src="img/user.png" />
+                            </span>
+                            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                                <span class="clear">
+                                    <span class="block m-t-xs">
+                                        <strong class="font-bold" style="text-transform: uppercase;">
+                                            SUPER USUARIO
+                                        </strong>
+                                    </span>
+                                    <span class="text-muted text-xs block">
+                                        ADMINISTRADOR
+                                        <b class="caret"></b>
+                                    </span>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                                <li>
+                                    <a href="">Perfil</a>
+                                </li>
+                                <li class="divider"></li>
+                                <li>
+                                    <a href="/">Cerrar Sesión</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="logo-element">
+                            LT+
+                        </div>
+                    </li>
+                    <li class="active">
+                        <a href="/">
+                            <i class="fa fa-key"></i>
+                            <span class="nav-label">Generación Códigos</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/codigos">
+                            <i class="fa fa-key"></i>
+                            <span class="nav-label">Lista Códigos</span>
+                        </a>
+                    </li>
+                </ul>
+
+            </div>
+        </nav>
+
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#">
+                            <i class="fa fa-bars"></i>
+                        </a>
+                        <div role="search" class="navbar-form-custom">
+                            <div class="form-group">
+                                <input type="text" value="SUPER USUARIO" class="form-control" name="top-search" id="top-search" disabled>
+                            </div>
+                        </div>
+                    </div>
+                    <ul class="nav navbar-top-links navbar-right">
+                        <li>
+                            <span class="m-r-sm text-muted welcome-message" style="text-transform: uppercase; font-weight: bold;">
+                            SUPER USUARIO Bienvenido a Loctel</span>
+                        </li>
+                        <li>
+                            <a href="">
+                                <i class="fa fa-sign-out"></i> Cerrar Sesión</a>
+                            </li>
+                        </ul>
+
+                    </nav>
+                </div>
+
+                <div class="row wrapper border-bottom white-bg page-heading">
+                    <div class="col-sm-4">
+                        <h2>Generación Códigos</h2>
+                        <ol class="breadcrumb">
+                            <li>
+                                <a>Administrador</a>
+                            </li>
+                            <li class="active">
+                                <strong>Códigos</strong>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="wrapper wrapper-content animated fadeInRight">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="ibox float-e-margins">
+                                <div class="ibox-title">
+                                    <h5>Generación de Códigos de Venta</h5>
+                                </div>
+                                <div class="ibox-content">
+
+                                    <div class="row">
+                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Empresa Receptora:</label>
+                                                <input type="text" class="form-control" id="DEPLOY" placeholder="Ingresar nombre de la empresa">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group" id="data_1">
+                                                <label>Fecha Registro:</label>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                                                    class="form-control" id="DATE">
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group" id="data_1">
+                                                <label>Fecha Expiración:</label>
+                                                <div class="input-group date">
+                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                                                    class="form-control" id="DATEEXP">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>Clave Secreta:</label>
+                                                <input type="text" class="form-control" onkeypress="return soloLetras(event)" id="RECRET" placeholder="Ingresar una cadena de números y letras (Mayúsculas)">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <label>MAC:</label>
+                                                <input type="text" class="form-control" id="MAC" placeholder="Ingresar dirección MAC">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>Código</label>
+                                                <input type="text" class="form-control" id="COD1">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>&nbsp</label>
+                                                <input type="text" class="form-control" id="COD2">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>&nbsp</label>
+                                                <input type="text" class="form-control" id="COD3">
+                                            </div>
+                                        </div>
+
+                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                            <div class="form-group">
+                                                <label>&nbsp</label>
+                                                <input type="text" class="form-control" id="COD4">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                            <div class="form-group">
+                                                <button class="btn btn-success" id="LOCGEN" style="width: 100%">
+                                                    <i class="fa fa-spinner"></i> Generar Código</button>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                                <div class="form-group">
+                                                    <button class="btn btn-primary" id="SAVE" style="width: 100%">
+                                                        <i class="fa fa-save"></i> Guardar Código</button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Mainly scripts -->
+                <script src="js/jquery-3.1.1.min.js"></script>
+                <script src="js/bootstrap.min.js"></script>
+                <script src="js/plugins/metisMenu/jquery.metisMenu.js"></script>
+                <script src="js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+                <!-- Custom and plugin javascript -->
+                <script src="js/inspinia.js"></script>
+                <script src="js/plugins/pace/pace.min.js"></script>
+                <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
+                <script src="js/plugins/toastr/toastr.min.js"></script>
+                <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+
+                <script>
+                    DireccionMac();
+                    InsertarFecha();
+
+                    $('#LOCGEN').click(function (event) {
+
+                        if ($('#RECRET').val().length > 0 && $('#MAC').val().length > 0) {
+                            var key = $('#RECRET').val();
+                            var mac = $('#MAC').val();
+                            $('#COD1').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/-/g, "").toUpperCase()));
+                            $('#COD2').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/-/g, "").toUpperCase()));
+                            $('#COD3').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/-/g, "").toUpperCase()));
+                            $('#COD4').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/-/g, "").toUpperCase()));
+                        } else {
+                            swal("Advertencia", "Ingresar Clave Secreta y/o Ingresar MAC", "warning");
+                        }
+                    });
+
+                    $('#SAVE').click(function (event) {
+
+                        if (Validar()) {
+
+                            var fecha = $('#DATE').val();
+                            var empresa = $('#DEPLOY').val();
+                            var serie = $('#RECRET').val();
+                            var mac = $('#MAC').val();
+                            var codigo = $('#COD1').val() + "-" + $('#COD2').val() + "-" + $('#COD3').val() + "-" + $('#COD4').val();
+                            var fechaExp = $('#DATEEXP').val();
+
+                            GuardarCodigo(fecha, empresa, serie, mac, codigo, fechaExp);
+                        }
+
+                    });
+
+                    function GuardarCodigo(fecha, empresa, serie, mac, codigo, fechaExp){
+                       $.ajax({
+                        type: "POST",
+                        url: "/GuardarCodigo",
+                        data: {fecha: fecha, empresa: empresa, serie: serie, mac: mac, codigo: codigo, fechaExp:fechaExp},
+                        success: function (res) {
+
+                            toastr.success(res[0].msm, 'Gestión Generación Códigos');
+                            LimpiarCampos();
+                        }
+                    });
+                   }
+
+                   function XAW13CSA9(CITEL, ENADA) {
+                    COMCIN = parseInt(CITEL);
+                    var ARCT = ENADA;
+                    var TRASE = "";
+                    for (i = 0; i < COMCIN; i++) TRASE += ARCT.charAt(Math.floor(Math.random() * ARCT.length));
+
+                        return TRASE;
+                }
+
+                function DireccionMac() {
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/DireccionMac",
+                        success: function (responseText) {
+                            $('#MAC').val("");
+                            $('#MAC').val(responseText);
+                        }
+                    });
+                }
+
+                function soloLetras(e) {
+                    key = e.keyCode || e.which;
+                    tecla = String.fromCharCode(key).toLowerCase();
+                    letras = " áéíóúabcdefghijklmnñopqrstuvwxyz0123456789";
+                    especiales = [];
+
+                    tecla_especial = false
+                    for (var i in especiales) {
+                        if (key == especiales[i]) {
+                            tecla_especial = true;
+                            break;
+                        }
+                    }
+
+                    if (letras.indexOf(tecla) == -1 && !tecla_especial)
+                        return false;
+                }
+
+                function InsertarFecha() {
+                    $('#data_1 .input-group.date').datepicker({
+                        format: 'yyyy-mm-dd',
+                        todayBtn: "linked",
+                        keyboardNavigation: false,
+                        forceParse: false,
+                        calendarWeeks: true,
+                        autoclose: true
+                    }).datepicker("setDate", new Date());;
+                }
+
+                function d2(n) {
+                    if (n < 9) return "0" + n;
+                    return n;
+                }
+
+                function Validar() {
+
+                    if ($('#DEPLOY').val().length > 0) {
+                        if ($('#DATE').val().length > 0) {
+                            if ($('#RECRET').val().length > 0) {
+                                if ($('#MAC').val().length > 0) {
+                                    if ($('#COD1').val().length > 0 && $('#COD2').val().length > 0 && $('#COD3').val().length > 0 && $('#COD4').val().length > 0) {
+                                        if ($('#DATEEXP').val().length > 0) {
+                                        return true;
+                                    } else {
+                                        swal("Advertencia", "Ingresar Fecha Expiración", "warning");
+                                    }
+                                } else {
+                                    swal("Advertencia", "No existe el código", "warning");
+                                }
+                            } else {
+                                swal("Advertencia", "Ingresar MAC del Servidor", "warning");
+                            }
+                        } else {
+                            swal("Advertencia", "Ingresar Clave Secreta", "warning");
+                        }
+                    } else {
+                        swal("Advertencia", "Ingresar Registro", "warning");
+                    }
+                } else {
+                    swal("Advertencia", "Ingresar nombre de la empresa receptora", "warning");
+                }
+
+                return false;
+            }
+
+            function LimpiarCampos() {
+                $('#DEPLOY').val("");
+                $('#RECRET').val("");
+                $('#COD1').val("");
+                $('#COD2').val("");
+                $('#COD3').val("");
+                $('#COD4').val("");
+            }
+
+        </script>
+
+    </body>
+
+    </html>
