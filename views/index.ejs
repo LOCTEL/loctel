@@ -245,10 +245,10 @@
                         if ($('#RECRET').val().length > 0 && $('#MAC').val().length > 0) {
                             var key = $('#RECRET').val();
                             var mac = $('#MAC').val();
-                            $('#COD1').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/-/g,/:/g, "").toUpperCase()));
-                            $('#COD2').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/-/g,/:/g, "").toUpperCase()));
-                            $('#COD3').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/-/g,/:/g, "").toUpperCase()));
-                            $('#COD4').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/-/g,/:/g, "").toUpperCase()));
+                            $('#COD1').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/[-:.{}]/g, "").toUpperCase()));
+                            $('#COD2').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/[-:.{}]/g, "").toUpperCase()));
+                            $('#COD3').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/[-:.{}]/g, "").toUpperCase()));
+                            $('#COD4').val(XAW13CSA9(4, key.replace(/ /g, "").toUpperCase() + mac.replace(/[-:.{}]/g, "").toUpperCase()));
                         } else {
                             swal("Advertencia", "Ingresar Clave Secreta y/o Ingresar MAC", "warning");
                         }
