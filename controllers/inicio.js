@@ -74,6 +74,22 @@ module.exports = {
 		  })
 		})
 
+    },
+
+    actualizarValidacion: function (req, res_, next) {
+        
+		pool2.connect().then(client => {
+		  client.query("SELECT \"GestionAutenticacion\"( 2,'','','','','"+req.params.id+"','','' )").then(res => {
+		    client.end();		    
+		    res_.json(res.rows);  
+		  })
+		  .catch(e => {
+		    client.end()
+		    res_.json(e.message);
+		  })
+		})
+
     }
+
 
 }

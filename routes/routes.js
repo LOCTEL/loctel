@@ -14,5 +14,6 @@ router.get('/codigos', function(req, res, next) {
 
 router.get('/ListarCodigos', controllers.inicio.listarCodigos);
 router.get('/Comprobar/:id?', controllers.inicio.comprobacion);
+router.get('/ActualizarValidacion/:id?', controllers.inicio.actualizarValidacion);
 
 module.exports = router;
