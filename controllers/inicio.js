@@ -1,6 +1,7 @@
 var Pool = require('pg-pool');
 var pool = new Pool();
-var connectionString = 'postgres://rzqfnxpfpkfkgo:97bfa922dbe9e80009d581c40dccfb37f4f87338a3d4a4aca77c7ddad4fb1fa9@ec2-54-163-245-14.compute-1.amazonaws.com:5432/dabk6t03tskshq';
+var connectionString = 'postgres://badominb:Cq7HG_rfLCWkWvX5EWHMAhGCIKFpf2Pw@pellefant.db.elephantsql.com:5432/badominb';
+//var connectionString = 'postgres://rzqfnxpfpkfkgo:97bfa922dbe9e80009d581c40dccfb37f4f87338a3d4a4aca77c7ddad4fb1fa9@ec2-54-163-245-14.compute-1.amazonaws.com:5432/dabk6t03tskshq';
 
 var pool2 = new Pool({
 	connectionString: connectionString,
