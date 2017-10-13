@@ -1,12 +1,5 @@
-var Pool = require('pg-pool');
-var pool = new Pool();
-var connectionString = 'postgres://badominb:Cq7HG_rfLCWkWvX5EWHMAhGCIKFpf2Pw@pellefant.db.elephantsql.com:5432/badominb';
-//var connectionString = 'postgres://rzqfnxpfpkfkgo:97bfa922dbe9e80009d581c40dccfb37f4f87338a3d4a4aca77c7ddad4fb1fa9@ec2-54-163-245-14.compute-1.amazonaws.com:5432/dabk6t03tskshq';
-
-var pool2 = new Pool({
-	connectionString: connectionString,
-	ssl: true,
-});
+var mysql = require('mysql');
+var config = require('.././database/database.js');
 
 module.exports = {
     getIndex: function (req, res, next) {
@@ -22,7 +15,7 @@ module.exports = {
         })
     },
 
-    guardarCodigo: function (req, res_, next) {
+    guardarCodigo: function (req, res, next) {
         
     	var fecha = req.body.fecha;
     	var empresa = req.body.empresa;
@@ -31,64 +24,80 @@ module.exports = {
     	var codigo = req.body.codigo;
     	var fechaExp = req.body.fechaExp;
 
-		pool2.connect().then(client => {
-		  client.query("SELECT \"GestionAutenticacion\"(1, '"+fecha+"', '"+empresa+"', '"+serie+"', '"+mac+"', '"+codigo+"', 'ACTIVO', '"+fechaExp+"') AS msm").then(res => {
-		    client.end();		    
-		    res_.send(res.rows);
-		  })
-		  .catch(e => {
-		    console.log('this line never runs');
-		    client.end()
-		    res_.send(e.message);
-		  })
-		})
+    	var db = mysql.createConnection(config);
+        db.connect();
+
+        db.query("SELECT \"GestionAutenticacion\"(1, '"+fecha+"', '"+empresa+"', '"+serie+"', '"+mac+"', '"+codigo+"', 'ACTIVO', '"+fechaExp+"') AS msm", function (err, rows, fields) {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+                db.end();
+            } else {
+                console.log(rows);
+                res.send(rows);
+                db.end();
+            }
+        });
 
     },
 
-    listarCodigos: function (req, res_, next) {
+    listarCodigos: function (req, res, next) {
         
-		pool2.connect().then(client => {
-		  client.query("SELECT * FROM authentication").then(res => {
-		    client.end();		    
-		    res_.send(res.rows);
+    	var db = mysql.createConnection(config);
+        db.connect();
 
-		  })
-		  .catch(e => {
-		    console.log('this line never runs');
-		    client.end()
-		    res_.send(e.message);
-		  })
-		})
+        db.query("SELECT * FROM authentication", function (err, rows, fields) {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+                db.end();
+            } else {
+                console.log(rows);
+                res.send(rows);
+                db.end();
+            }
+        });
+
 
     },
 
-    comprobacion: function (req, res_, next) {
-        
-		pool2.connect().then(client => {
-		  client.query("SELECT \"GestionAutenticacion\"( 3,'','','','','"+req.params.id+"','','' )").then(res => {
-		    client.end();		    
-		    res_.json(res.rows);  
-		  })
-		  .catch(e => {
-		    client.end()
-		    res_.json(e.message);
-		  })
-		})
+    comprobacion: function (req, res, next) {
+
+    	var db = mysql.createConnection(config);
+        db.connect();
+
+		db.query("SELECT \"GestionAutenticacion\"( 3,'','','','','"+req.params.id+"','','' )", function (err, rows, fields) {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+                db.end();
+            } else {
+                console.log(rows);
+                res.send(rows);
+                db.end();
+            }
+        });
+
 
     },
 
-    actualizarValidacion: function (req, res_, next) {
+    actualizarValidacion: function (req, res, next) {
         
-		pool2.connect().then(client => {
-		  client.query("SELECT \"GestionAutenticacion\"( 2,'','','','','"+req.params.id+"','','' )").then(res => {
-		    client.end();		    
-		    res_.json(res.rows);  
-		  })
-		  .catch(e => {
-		    client.end()
-		    res_.json(e.message);
-		  })
-		})
+		var db = mysql.createConnection(config);
+        db.connect();
+
+		db.query("SELECT \"GestionAutenticacion\"( 2,'','','','','"+req.params.id+"','','' )", function (err, rows, fields) {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+                db.end();
+            } else {
+                console.log(rows);
+                res.send(rows);
+                db.end();
+            }
+        });
+
 
     }
 
