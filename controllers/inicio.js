@@ -27,7 +27,7 @@ module.exports = {
     	var db = mysql.createConnection(config);
         db.connect();
 
-        db.query("SELECT \"GestionAutenticacion\"(1, '"+fecha+"', '"+empresa+"', '"+serie+"', '"+mac+"', '"+codigo+"', 'ACTIVO', '"+fechaExp+"') AS msm", function (err, rows, fields) {
+        db.query("SELECT GestionAutenticacion(1, '"+fecha+"', '"+empresa+"', '"+serie+"', '"+mac+"', '"+codigo+"', 'ACTIVO', '"+fechaExp+"') AS msm", function (err, rows, fields) {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);
@@ -66,7 +66,7 @@ module.exports = {
     	var db = mysql.createConnection(config);
         db.connect();
 
-		db.query("SELECT \"GestionAutenticacion\"( 3,'','','','','"+req.params.id+"','','' )", function (err, rows, fields) {
+		db.query("SELECT GestionAutenticacion( 3,'','','','','"+req.params.id+"','','' ) AS msm", function (err, rows, fields) {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);
@@ -86,7 +86,7 @@ module.exports = {
 		var db = mysql.createConnection(config);
         db.connect();
 
-		db.query("SELECT \"GestionAutenticacion\"( 2,'','','','','"+req.params.id+"','','' )", function (err, rows, fields) {
+		db.query("SELECT GestionAutenticacion( 2,'','','','','"+req.params.id+"','','' ) AS msm", function (err, rows, fields) {
             if (err) {
                 console.log(err);
                 res.sendStatus(500);
