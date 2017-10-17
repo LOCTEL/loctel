@@ -99,6 +99,26 @@ module.exports = {
         });
 
 
+    },
+
+    expiracion: function (req, res, next) {
+
+    	var db = mysql.createConnection(config);
+        db.connect();
+
+		db.query("SELECT GestionAutenticacion( 4,'','','','','"+req.params.id+"','','' ) AS msm", function (err, rows, fields) {
+            if (err) {
+                console.log(err);
+                res.sendStatus(500);
+                db.end();
+            } else {
+                console.log(rows);
+                res.send(rows);
+                db.end();
+            }
+        });
+
+
     }
 
 
