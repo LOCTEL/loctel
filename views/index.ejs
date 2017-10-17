@@ -16,10 +16,11 @@
     <link href="css/animate.css" rel="stylesheet">
     <link href="css/style.css" rel="stylesheet">
     <link href="css/plugins/datapicker/datepicker3.css" rel="stylesheet">
+    <link href="css/plugins/dataTables/datatables.min.css" rel="stylesheet">
 
 </head>
 
-<body class="">
+<body class="skin-3">
 
     <div id="wrapper">
 
@@ -62,12 +63,6 @@
                         <a href="/">
                             <i class="fa fa-key"></i>
                             <span class="nav-label">Generación Códigos</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="/codigos">
-                            <i class="fa fa-align-left"></i>
-                            <span class="nav-label">Lista Códigos</span>
                         </a>
                     </li>
                 </ul>
@@ -125,99 +120,160 @@
                                 </div>
                                 <div class="ibox-content">
 
-                                    <div class="row">
-                                        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                            <div class="form-group">
-                                                <label>Empresa Receptora:</label>
-                                                <input type="text" class="form-control" id="DEPLOY" placeholder="Ingresar nombre de la empresa">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="form-group" id="data_1">
-                                                <label>Fecha Registro:</label>
-                                                <div class="input-group date">
-                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                    class="form-control" id="DATE">
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="form-group" id="data_1">
-                                                <label>Fecha Expiración:</label>
-                                                <div class="input-group date">
-                                                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
-                                                    class="form-control" id="DATEEXP">
-                                                </div>
-                                            </div>
-                                        </div>
+                                    <div class="form-group">
+                                        <button type="button" class="btn btn-w-m btn-warning" data-toggle="modal" data-target="#mdGCodigo" id="guardar"><i class="fa fa-plus"></i> Agregar Código</button>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="form-group">
-                                                <label>Clave Secreta:</label>
-                                                <input type="text" class="form-control" onkeypress="return soloLetras(event)" id="RECRET" placeholder="Ingresar una cadena de números y letras (Mayúsculas)">
-                                            </div>
-                                        </div>
-
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="form-group">
-                                                <label>MAC:</label>
-                                                <input type="text" class="form-control" id="MAC" placeholder="Ingresar dirección MAC">
-                                            </div>
-                                        </div>
+                                    
+                                    <div class="table-responsive">
+                                        <table id="tbCodigo" class="table table-striped table-bordered table-hover" style="width: 100%">
+                                            <thead>
+                                                <tr>
+                                                    <th style="background: #1AB394; color: white">Código</th>
+                                                    <th style="background: #1AB394; color: white">Fecha Registro</th>
+                                                    <th style="background: #1AB394; color: white">Empresa Receptora</th>
+                                                    <th style="background: #1AB394; color: white">Clave Secreta</th>
+                                                    <th style="background: #1AB394; color: white">MAC</th>
+                                                    <th style="background: #1AB394; color: white">Código</th>
+                                                    <th style="background: #1AB394; color: white">Estado</th>
+                                                    <th style="background: #1AB394; color: white"></th>
+                                                </tr>
+                                            </thead>
+                                        </table>                                        
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                            <div class="form-group">
-                                                <label>Código</label>
-                                                <input type="text" class="form-control" id="COD1">
-                                            </div>
-                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                            <div class="form-group">
-                                                <label>&nbsp</label>
-                                                <input type="text" class="form-control" id="COD2">
-                                            </div>
-                                        </div>
+        <div class="modal fade" id="mdGCodigo" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content animated flipInY">
 
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                            <div class="form-group">
-                                                <label>&nbsp</label>
-                                                <input type="text" class="form-control" id="COD3">
-                                            </div>
-                                        </div>
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                        <h2 class="modal-title font-bold">Gestión de Licencias</h2>
+                    </div>
+                    <div class="modal-body">
 
-                                        <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
-                                            <div class="form-group">
-                                                <label>&nbsp</label>
-                                                <input type="text" class="form-control" id="COD4">
-                                            </div>
-                                        </div>
-                                    </div>
+                        <div class="row">
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Empresa Receptora:</label>
+                                    <input type="text" class="form-control" id="DEPLOY" placeholder="Ingresar nombre de la empresa">
+                                </div>
+                            </div>
 
-                                    <div class="row">
-                                        <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                            <div class="form-group">
-                                                <button class="btn btn-success" id="LOCGEN" style="width: 100%">
-                                                    <i class="fa fa-spinner"></i> Generar Código</button>
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
-                                                <div class="form-group">
-                                                    <button class="btn btn-primary" id="SAVE" style="width: 100%">
-                                                        <i class="fa fa-save"></i> Guardar Código</button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group" id="data_1">
+                                    <label>Fecha Registro:</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                                        class="form-control" id="DATE">
                                     </div>
                                 </div>
                             </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group" id="data_1">
+                                    <label>Fecha Expiración:</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                                        class="form-control" id="DATEEXP">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>Clave Secreta:</label>
+                                    <input type="text" class="form-control" onkeypress="return soloLetras(event)" id="RECRET" placeholder="Ingresar una cadena de números y letras (Mayúsculas)">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-6 col-md-6 col-sm-12 col-xs-12">
+                                <div class="form-group">
+                                    <label>MAC:</label>
+                                    <input type="text" class="form-control" id="MAC" placeholder="Ingresar dirección MAC">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label>Código</label>
+                                    <input type="text" class="form-control" id="COD1">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label>&nbsp</label>
+                                    <input type="text" class="form-control" id="COD2">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label>&nbsp</label>
+                                    <input type="text" class="form-control" id="COD3">
+                                </div>
+                            </div>
+
+                            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-6">
+                                <div class="form-group">
+                                    <label>&nbsp</label>
+                                    <input type="text" class="form-control" id="COD4">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times"></i>  Cancelar</button>
+                        <button class="btn btn-success" id="LOCGEN" >
+                            <i class="fa fa-spinner"></i> Generar Código</button>
+                            <button class="btn btn-primary" id="SAVE" >
+                                <i class="fa fa-save"></i> Guardar Código</button>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal fade" id="mdRCodigo" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content animated flipInY">
+                           
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h2 class="modal-title font-bold">Renovación de Licencia</h2>
+                                </div>
+                                <div class="modal-body">
+
+                                    <div class="form-group">
+                                        <label>Código</label>
+                                        <input type="text" class="form-control" id="CODIGOR">
+                                    </div>
+                                    <div class="form-group" id="data_1">
+                                    <label>Fecha Expiración:</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
+                                        class="form-control" id="DATEEXPR">
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times"></i>  Cancelar</button>
+                                    <button type="submit" class="btn btn-warning" id="RENOVAR"><i class="fa fa-save"></i> Renovar Código</button>
+                                </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -235,6 +291,7 @@
                 <script src="js/plugins/sweetalert/sweetalert.min.js"></script>
                 <script src="js/plugins/toastr/toastr.min.js"></script>
                 <script src="js/plugins/datapicker/bootstrap-datepicker.js"></script>
+                <script src="js/plugins/dataTables/datatables.min.js"></script>
 
                 <script>
                     DireccionMac();
@@ -270,6 +327,16 @@
 
                     });
 
+                    $('#RENOVAR').click(function (event) {
+
+          
+                            var codigoR = $('#CODIGOR').val();
+                            var fechaExpR = $('#DATEEXPR').val();
+
+                            RenovarCodigo(codigoR, fechaExpR);
+
+                    });
+
                     function GuardarCodigo(fecha, empresa, serie, mac, codigo, fechaExp){
                        $.ajax({
                         type: "POST",
@@ -277,8 +344,24 @@
                         data: {fecha: fecha, empresa: empresa, serie: serie, mac: mac, codigo: codigo, fechaExp:fechaExp},
                         success: function (res) {
 
-                            toastr.success(res[0].msm, 'Gestión Generación Códigos');
+                            toastr.warning(res[0].msm, 'Gestión Generación Códigos');
                             LimpiarCampos();
+                            ListarCodigo();
+                            $('#mdGCodigo').modal('toggle');
+                        }
+                    });
+                   }
+
+                    function RenovarCodigo(codigoR, fechaExpR){
+                       $.ajax({
+                        type: "POST",
+                        url: "/RenovarCodigo",
+                        data: {codigoR: codigoR, fechaExpR:fechaExpR},
+                        success: function (res) {
+
+                            toastr.warning(res[0].msm, 'Gestión Renovación Códigos');
+                            ListarCodigo();
+                            $('#mdRCodigo').modal('toggle');
                         }
                     });
                    }
@@ -346,40 +429,135 @@
                                 if ($('#MAC').val().length > 0) {
                                     if ($('#COD1').val().length > 0 && $('#COD2').val().length > 0 && $('#COD3').val().length > 0 && $('#COD4').val().length > 0) {
                                         if ($('#DATEEXP').val().length > 0) {
-                                        return true;
+                                            return true;
+                                        } else {
+                                            swal("Advertencia", "Ingresar Fecha Expiración", "warning");
+                                        }
                                     } else {
-                                        swal("Advertencia", "Ingresar Fecha Expiración", "warning");
+                                        swal("Advertencia", "No existe el código", "warning");
                                     }
                                 } else {
-                                    swal("Advertencia", "No existe el código", "warning");
+                                    swal("Advertencia", "Ingresar MAC del Servidor", "warning");
                                 }
                             } else {
-                                swal("Advertencia", "Ingresar MAC del Servidor", "warning");
+                                swal("Advertencia", "Ingresar Clave Secreta", "warning");
                             }
                         } else {
-                            swal("Advertencia", "Ingresar Clave Secreta", "warning");
+                            swal("Advertencia", "Ingresar Registro", "warning");
                         }
                     } else {
-                        swal("Advertencia", "Ingresar Registro", "warning");
+                        swal("Advertencia", "Ingresar nombre de la empresa receptora", "warning");
                     }
-                } else {
-                    swal("Advertencia", "Ingresar nombre de la empresa receptora", "warning");
+
+                    return false;
                 }
 
-                return false;
-            }
+                function LimpiarCampos() {
+                    $('#DEPLOY').val("");
+                    $('#RECRET').val("");
+                    $('#COD1').val("");
+                    $('#COD2').val("");
+                    $('#COD3').val("");
+                    $('#COD4').val("");
+                }
 
-            function LimpiarCampos() {
-                $('#DEPLOY').val("");
-                $('#RECRET').val("");
-                $('#COD1').val("");
-                $('#COD2').val("");
-                $('#COD3').val("");
-                $('#COD4').val("");
-            }
+            </script>
 
-        </script>
+            <script>
 
-    </body>
+                ListarCodigo();
 
-    </html>
+                function ListarCodigo(){
+
+                    $.ajax({
+                        type: "GET",
+                        url: "/ListarCodigos",
+                        success: function (res) {
+
+                            var table = $('#tbCodigo').DataTable();
+                            table.destroy();
+                            $('#tbCodigo').empty();
+                            table = $('#tbCodigo').DataTable({
+                                "ordering": false,
+                                pageLength: 10,
+                                responsive: true,
+                                dom: '<"html5buttons"B>lTfgitp',
+                                buttons: [
+                                { extend: 'csv', className: 'exportar-csv-e' },
+                                { extend: 'excel', title: 'key-search-excel', className: 'exportar-excel-e' },
+                                {
+                                    text: '<i class=\'fa fa-refresh\'><i>',
+                                    action: function (e, dt, node, config) {
+                                        location.reload();
+                                    }
+                                }
+                                ],
+                                data: res,
+                                columns: [
+                                { data: 'aut_id', title: "Código" },
+                                { data: 'aut_fecha', title: "Fecha Registro" },
+                                { data: 'aut_empresa', title: "Empresa Receptora" },
+                                { data: 'aut_serie', title: "Clave Secreta" },
+                                { data: 'aut_mac', title: "MAC" },
+                                { data: 'aut_codigo', title: "Código" },
+                                { data: 'aut_estado', title: "Código" },
+                                { data: 'aut_fecha_fin', title: "Fecha Expiración" }
+                                ],
+                                "columnDefs": [
+                                {
+                                    "targets": [0],
+                                    "visible": false,
+                                    "searchable": false
+                                },
+                                {
+                                "targets": [8],
+                                "data": null,
+                                "width": "1%",
+                                "defaultContent": "<button id='btnRenovar' class='btn btn-warning' type='button'><i class='fa fa-pencil'></i></button>"
+                                }],
+                                "language": {
+                                    "sProcessing": "Procesando...",
+                                    "sLengthMenu": "Mostrar _MENU_ registros",
+                                    "sZeroRecords": "No se encontraron resultados",
+                                    "sEmptyTable": "Ningún dato disponible en esta tabla",
+                                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                                    "sInfoPostFix": "",
+                                    "sSearch": "",
+                                    "sUrl": "",
+                                    "sInfoThousands": ",",
+                                    "sLoadingRecords": "Cargando...",
+                                    "oPaginate": {
+                                        "sFirst": "Primero",
+                                        "sLast": "Último",
+                                        "sNext": "Siguiente",
+                                        "sPrevious": "Anterior"
+                                    },
+                                    "oAria": {
+                                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                                    },
+                                    searchPlaceholder: "Buscar datos"
+                                }
+                            });
+
+                            $('#tbCodigo tbody').on('click', '#btnRenovar', function () {
+                                var data = table.row($(this).parents('tr')).data();
+
+                                $('#mdRCodigo').modal('show');
+
+                                $('#CODIGOR').val(data.aut_codigo);
+                                $('#DATEEXPR').val(data.aut_fecha_fin);
+
+                            });
+                        }
+                    });
+                }
+
+            </script>
+
+        </body>
+
+        </html>
+
