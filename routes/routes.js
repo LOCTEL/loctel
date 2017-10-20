@@ -7,10 +7,11 @@ router.get('/', controllers.inicio.getIndex);
 router.get('/DireccionMac', controllers.inicio.obtenerMAC);
 router.post('/GuardarCodigo', controllers.inicio.guardarCodigo);
 router.post('/RenovarCodigo', controllers.inicio.renovarCodigo);
-
 router.get('/ListarCodigos', controllers.inicio.listarCodigos);
-router.get('/Comprobar/:id?', controllers.inicio.comprobacion);
-router.get('/ActualizarValidacion/:id?', controllers.inicio.actualizarValidacion);
-router.get('/Expiracion/:id?', controllers.inicio.expiracion);
+
+
+router.get('/ComprobarCodigo/:id?', controllers.inicio.comprobacionRESTAPI);
+router.get('/GenerarCodigo/:id?', controllers.inicio.generarCodigoRESTAPI);
+router.get('/ExpiracionCodigo/:id?', controllers.inicio.expiracionRESTAPI);
 
 module.exports = router;

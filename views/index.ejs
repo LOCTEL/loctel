@@ -250,29 +250,29 @@
                 <div class="modal fade" id="mdRCodigo" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content animated flipInY">
-                           
-                                <div class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                                    <h2 class="modal-title font-bold">Renovación de Licencia</h2>
-                                </div>
-                                <div class="modal-body">
+                         
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                <h2 class="modal-title font-bold">Renovación de Licencia</h2>
+                            </div>
+                            <div class="modal-body">
 
-                                    <div class="form-group">
-                                        <label>Código</label>
-                                        <input type="text" class="form-control" id="CODIGOR">
-                                    </div>
-                                    <div class="form-group" id="data_1">
+                                <div class="form-group">
+                                    <label>Código</label>
+                                    <input type="text" class="form-control" id="CODIGOR">
+                                </div>
+                                <div class="form-group" id="data_1">
                                     <label>Fecha Expiración:</label>
                                     <div class="input-group date">
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span><input type="text"
                                         class="form-control" id="DATEEXPR">
                                     </div>
                                 </div>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times"></i>  Cancelar</button>
-                                    <button type="submit" class="btn btn-warning" id="RENOVAR"><i class="fa fa-save"></i> Renovar Código</button>
-                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-white" data-dismiss="modal"><i class="fa fa-times"></i>  Cancelar</button>
+                                <button type="submit" class="btn btn-warning" id="RENOVAR"><i class="fa fa-save"></i> Renovar Código</button>
+                            </div>
                             
                         </div>
                     </div>
@@ -329,16 +329,16 @@
 
                     $('#RENOVAR').click(function (event) {
 
-          
-                            var codigoR = $('#CODIGOR').val();
-                            var fechaExpR = $('#DATEEXPR').val();
+                      
+                        var codigoR = $('#CODIGOR').val();
+                        var fechaExpR = $('#DATEEXPR').val();
 
-                            RenovarCodigo(codigoR, fechaExpR);
+                        RenovarCodigo(codigoR, fechaExpR);
 
                     });
 
                     function GuardarCodigo(fecha, empresa, serie, mac, codigo, fechaExp){
-                       $.ajax({
+                     $.ajax({
                         type: "POST",
                         url: "/GuardarCodigo",
                         data: {fecha: fecha, empresa: empresa, serie: serie, mac: mac, codigo: codigo, fechaExp:fechaExp},
@@ -350,10 +350,10 @@
                             $('#mdGCodigo').modal('toggle');
                         }
                     });
-                   }
+                 }
 
-                    function RenovarCodigo(codigoR, fechaExpR){
-                       $.ajax({
+                 function RenovarCodigo(codigoR, fechaExpR){
+                     $.ajax({
                         type: "POST",
                         url: "/RenovarCodigo",
                         data: {codigoR: codigoR, fechaExpR:fechaExpR},
@@ -364,9 +364,9 @@
                             $('#mdRCodigo').modal('toggle');
                         }
                     });
-                   }
+                 }
 
-                   function XAW13CSA9(CITEL, ENADA) {
+                 function XAW13CSA9(CITEL, ENADA) {
                     COMCIN = parseInt(CITEL);
                     var ARCT = ENADA;
                     var TRASE = "";
@@ -510,10 +510,10 @@
                                     "searchable": false
                                 },
                                 {
-                                "targets": [8],
-                                "data": null,
-                                "width": "1%",
-                                "defaultContent": "<button id='btnRenovar' class='btn btn-warning' type='button'><i class='fa fa-pencil'></i></button>"
+                                    "targets": [8],
+                                    "data": null,
+                                    "width": "1%",
+                                    "defaultContent": "<button id='btnRenovar' class='btn btn-warning' type='button'><i class='fa fa-pencil'></i></button>"
                                 }],
                                 "language": {
                                     "sProcessing": "Procesando...",
@@ -553,11 +553,11 @@
                             });
                         }
                     });
-                }
+}
 
-            </script>
+</script>
 
-        </body>
+</body>
 
-        </html>
+</html>
 
