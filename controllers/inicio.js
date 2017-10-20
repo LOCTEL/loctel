@@ -129,6 +129,22 @@ module.exports = {
           })
         })
 
+    },
+
+    rollbackCodigoRESTAPI: function (req, res_, next) {
+
+        
+        pool2.connect().then(client => {
+          client.query("SELECT \"GestionAutenticacion\"( 6,'','','','','"+req.params.id+"','','' ) AS msm").then(res => {
+            client.release();           
+            res_.send(res.rows);
+          })
+          .catch(e => {
+            console.log('this line never runs');
+            res_.send(e.message);
+          })
+        })
+
     }
 
 

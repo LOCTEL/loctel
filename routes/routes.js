@@ -13,5 +13,6 @@ router.get('/ListarCodigos', controllers.inicio.listarCodigos);
 router.get('/ComprobarCodigo/:id?', controllers.inicio.comprobacionRESTAPI);
 router.get('/GenerarCodigo/:id?', controllers.inicio.generarCodigoRESTAPI);
 router.get('/ExpiracionCodigo/:id?', controllers.inicio.expiracionRESTAPI);
+router.get('/RollbackCodigo/:id?', controllers.inicio.rollbackCodigoRESTAPI);
 
 module.exports = router;
